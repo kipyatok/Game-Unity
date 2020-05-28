@@ -56,7 +56,7 @@ public abstract class SpecialAttack : MonoBehaviour
 /// <summary>
 /// Первая спец атака. Резкое падение объекта вниз и медленное поднимание
 /// </summary>
-class FirstAttackBoss : SpecialAttack
+class BasicAttack : SpecialAttack
 {
     /// <summary>
     /// Запуск второй специальной атаки у объекта. С подключением компанента FirstAttackBosss.
@@ -66,13 +66,13 @@ class FirstAttackBoss : SpecialAttack
     /// <param name="boss">Объект босса</param>
     public override void AttackBoss(GameObject boss)
     {
-        if(!boss.GetComponent<FirstAttackBosss>())
+        if(!boss.GetComponent<BasicAttackBoss>())
         {
-            boss.AddComponent<FirstAttackBosss>();
+            boss.AddComponent<BasicAttackBoss>();
         }
         else
         {
-            boss.GetComponent<FirstAttackBosss>().enabled = true;
+            boss.GetComponent<BasicAttackBoss>().enabled = true;
         }
     }
 
@@ -84,9 +84,9 @@ class FirstAttackBoss : SpecialAttack
     /// <returns></returns>
     public override bool GetEndAttack(GameObject boss)
     {
-        if (boss.GetComponent<FirstAttackBosss>())
+        if (boss.GetComponent<BasicAttackBoss>())
         {
-            if (boss.GetComponent<FirstAttackBosss>().enabled)
+            if (boss.GetComponent<BasicAttackBoss>().enabled)
             {
                 return true;
             }
@@ -111,15 +111,15 @@ class TwoAttack : SpecialAttack
     /// <param name="blast">Объект лазера</param>
     public override void AttackBoss(GameObject boss, GameObject blast)
     {
-        if (!boss.GetComponent<TwoAttackBosss>()) // Если компанент не добавлен, то добавляем его и присваиваем лазер
+        if (!boss.GetComponent<BlastAttackBoss>()) // Если компанент не добавлен, то добавляем его и присваиваем лазер
         {
-            boss.AddComponent<TwoAttackBosss>();
-            TwoAttackBosss _boss = boss.GetComponent<TwoAttackBosss>();
+            boss.AddComponent<BlastAttackBoss>();
+            TwoAttackBosss _boss = boss.GetComponent<BlastAttackBoss>();
             _boss.blactBullet = blast;
         }
         else // Иначе просто запускаем
         {
-            boss.GetComponent<TwoAttackBosss>().enabled = true;
+            boss.GetComponent<BlastAttackBoss>().enabled = true;
         }
     }
     /// <summary>
@@ -130,9 +130,9 @@ class TwoAttack : SpecialAttack
     /// <returns></returns>
     public override bool GetEndAttack(GameObject boss)
     {
-        if (boss.GetComponent<TwoAttackBosss>())
+        if (boss.GetComponent<BlastAttackBoss>())
         {
-            if (boss.GetComponent<TwoAttackBosss>().enabled)
+            if (boss.GetComponent<BlastAttackBoss>().enabled)
             {
                 return true;
             }
