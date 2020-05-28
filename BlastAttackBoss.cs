@@ -3,7 +3,7 @@
 /// <summary>
 /// Вторая специальная атака. Объект движется в центр. Запускает лазеры и начинает их крутить.
 /// </summary>
-class TwoAttackBosss: MonoBehaviour
+class BlastAttackBoss: MonoBehaviour
 {
     public GameObject blactBullet; // Объект лазера
     
@@ -123,10 +123,7 @@ class TwoAttackBosss: MonoBehaviour
     private bool IsTimer(ref float time)
     {
         time -= Time.deltaTime;
-        if (time < 0)
-            return true;
-        else
-            return false;
+        return (time<0);
     }
 
 
