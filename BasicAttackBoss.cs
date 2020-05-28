@@ -2,7 +2,7 @@
 /// <summary>
 /// Первая спец атака. Резкое падение объекта вниз и медленное поднимание
 /// </summary>
-public class FirstAttackBosss : MonoBehaviour
+public class BasicAttackBosss : MonoBehaviour
 {
     float speedDown = 20f; // Скорость падания
     float speedUP = 5f; // Скорость подымания
